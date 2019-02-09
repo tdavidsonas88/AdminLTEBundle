@@ -46,31 +46,33 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
                 <span class="sr-only">{{ 'Toggle navigation'|trans({}, 'AdminLTEBundle')  }}</span>
             </a>
             {% endblock %}
-            <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-                    {% block navbar_start %}{% endblock %}
-                    {% block navbar_messages %}
-                        {{ render(controller('AdminLTEBundle:Navbar:messages')) }}
-                    {% endblock %}
-                    {% block navbar_notifications %}
-                        {{ render(controller('AdminLTEBundle:Navbar:notifications')) }}
-                    {% endblock %}
-                    {% block navbar_tasks %}
-                        {{ render(controller('AdminLTEBundle:Navbar:tasks')) }}
-                    {% endblock %}
-                    {% block navbar_user %}
-                        {{ render(controller('AdminLTEBundle:Navbar:user')) }}
-                    {% endblock %}
-                    {% block navbar_end %}{% endblock %}
-                    {% block navbar_control_sidebar_toggle %}
-                        {% if admin_lte_context.control_sidebar is defined and admin_lte_context.control_sidebar is not empty %}
-                        <li>
-                            <a href="#" data-toggle="control-sidebar"><i class="fas fa-cogs"></i></a>
-                        </li>
-                        {% endif %}
-                    {% endblock %}
-                </ul>
-            </div>
+            {% block navbar-custom-menu %}
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        {% block navbar_start %}{% endblock %}
+                        {% block navbar_messages %}
+                            {{ render(controller('AdminLTEBundle:Navbar:messages')) }}
+                        {% endblock %}
+                        {% block navbar_notifications %}
+                            {{ render(controller('AdminLTEBundle:Navbar:notifications')) }}
+                        {% endblock %}
+                        {% block navbar_tasks %}
+                            {{ render(controller('AdminLTEBundle:Navbar:tasks')) }}
+                        {% endblock %}
+                        {% block navbar_user %}
+                            {{ render(controller('AdminLTEBundle:Navbar:user')) }}
+                        {% endblock %}
+                        {% block navbar_end %}{% endblock %}
+                        {% block navbar_control_sidebar_toggle %}
+                            {% if admin_lte_context.control_sidebar is defined and admin_lte_context.control_sidebar is not empty %}
+                            <li>
+                                <a href="#" data-toggle="control-sidebar"><i class="fas fa-cogs"></i></a>
+                            </li>
+                            {% endif %}
+                        {% endblock %}
+                    </ul>
+                </div>
+             {% endblock %}
         </nav>
     </header>
 
